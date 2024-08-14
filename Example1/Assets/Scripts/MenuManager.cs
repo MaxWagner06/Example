@@ -7,6 +7,9 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject opionsPanel;
     public bool onOptionsPanel;
+
+    public bool onCreditsPanel;
+    public GameObject creditsPanel;
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
@@ -32,6 +35,20 @@ public class MenuManager : MonoBehaviour
         {
             opionsPanel.SetActive(false);
             onOptionsPanel = false;
+        }
+    }
+
+    public void CreditsPanel()
+    {
+        if (!onCreditsPanel)
+        {
+            creditsPanel.SetActive(true);
+            onCreditsPanel = true;
+        }
+        else
+        {
+            creditsPanel.SetActive(false);
+            onCreditsPanel = false;
         }
     }
 }

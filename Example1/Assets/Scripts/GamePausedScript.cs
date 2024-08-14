@@ -6,23 +6,28 @@ public class GamePausedScript : MonoBehaviour
 {
     public GameObject pausedPanel;
     public bool onGamePaused;
+    public GameManager gameManager;
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(!gameManager.gameOver)
         {
-            if(onGamePaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                pausedPanel.SetActive(false);
-                onGamePaused = false;
-                Time.timeScale = 1;
-            }
-            else
-            {
-                pausedPanel.SetActive(true);
-                onGamePaused = true;
-                Time.timeScale = 0;
+                if (onGamePaused)
+                {
+                    pausedPanel.SetActive(false);
+                    onGamePaused = false;
+                    Time.timeScale = 1;
+                }
+                else
+                {
+                    pausedPanel.SetActive(true);
+                    onGamePaused = true;
+                    Time.timeScale = 0;
+                }
             }
         }
+       
     }
 }
